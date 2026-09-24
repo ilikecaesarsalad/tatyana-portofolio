@@ -23,6 +23,11 @@
   font-weight: 400; font-style: italic; font-display: swap;
 }
 @font-face {
+  font-family: "Charline";
+  src: url("../assets/fonts/Charline.otf") format("opentype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
   font-family: "Pinyon Script";
   src: url("../assets/fonts/PinyonScript-Regular.woff2") format("woff2");
   font-weight: 400; font-style: normal; font-display: swap;
@@ -93,7 +98,7 @@
   --font-big:     "Noisy Walk", "Noisy Walk Marks", "Lemon Milk", system-ui, sans-serif;
   --big-k:        .64;
   --font-display: "Instrument Serif", "Iowan Old Style", Georgia, "Times New Roman", serif;
-  --font-script:  "Pinyon Script", "Snell Roundhand", "Apple Chancery", cursive;
+  --font-script:  "Charline", "Pinyon Script", "Snell Roundhand", "Apple Chancery", cursive;
   --font-sans:    "Lemon Milk", "Karla", "Segoe UI", system-ui, -apple-system, sans-serif;
   --sans-k:       .76;
   --sans-track:   .06em;
