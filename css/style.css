@@ -981,6 +981,59 @@ a { color: inherit; text-decoration: none; }
   .reach__link_tatyana { padding-left: 14px; }
 }
 
+/* ── Subtle image animations ─────────────────────── */
+
+/* Gentle floating for the about portrait */
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.about__photo_tatyana img {
+  animation: gentleFloat 5s ease-in-out infinite;
+  transition: box-shadow .5s ease, transform .5s ease;
+}
+.about__photo_tatyana img:hover {
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, .9), 0 0 20px rgba(255, 45, 149, .15);
+  transform: translateY(-4px) scale(1.02);
+}
+
+/* Soft glow + lift on project device screenshots */
+.device_tatyana {
+  transition: transform .5s var(--ease), filter .5s ease, box-shadow .5s ease;
+}
+.device_tatyana:not(.device--back_tatyana):hover {
+  box-shadow: 0 36px 70px -30px rgba(0, 0, 0, .9), 0 0 24px rgba(69, 230, 245, .12);
+}
+
+/* Subtle zoom on device screenshot images when hovered */
+.device__screen_tatyana img {
+  transition: transform .8s ease;
+}
+.device_tatyana:hover .device__screen_tatyana img {
+  transform: scale(1.03);
+}
+
+/* Gentle float for scene/skyline decorative images */
+@keyframes sceneFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+.scene__skyline_tatyana {
+  animation: sceneFloat 7s ease-in-out infinite;
+}
+
+/* Soft parallax-style lift for interlude tiles on hover */
+.tile_tatyana {
+  transition: transform .6s ease, filter .6s ease;
+}
+.tile_tatyana:hover {
+  transform: translateY(-5px) scale(1.02);
+  filter: brightness(1.1);
+}
+
+/* ── End subtle image animations ─────────────────── */
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {
@@ -990,6 +1043,8 @@ a { color: inherit; text-decoration: none; }
   }
   .reveal_tatyana { opacity: 1; transform: none; }
   .hero__photo_tatyana { animation: none; }
+  .about__photo_tatyana img { animation: none; }
+  .scene__skyline_tatyana { animation: none; }
   .hero__note_tatyana, .hero__first_tatyana, .hero__second_tatyana, .hero__role_tatyana,
   .hero__intro_tatyana, .hero__actions_tatyana, .hero__photo_tatyana, .hero__scroll_tatyana { opacity: 1; }
 }
