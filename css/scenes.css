@@ -1,0 +1,347 @@
+
+.scene_tatyana {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bridge_tatyana {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.scene__skyline_tatyana,
+.scene__water_tatyana {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  max-width: none;
+  object-fit: cover;
+}
+.scene--hero_tatyana .scene__skyline_tatyana { bottom: 0; height: var(--sky-h); object-position: 50% 100%; }
+
+.plane_tatyana {
+  position: absolute;
+  left: calc(50% + var(--sky-h) * .068);
+  bottom: calc(var(--sky-h) * .99);
+  width: 46px;
+  rotate: 7deg;
+  animation: plane-on 16s linear 1s infinite both;
+}
+.plane__body_tatyana { display: block; width: 46px; height: auto; overflow: visible; }
+.plane__trail_tatyana {
+  position: absolute;
+  right: 88%;
+  top: 50%;
+  width: clamp(40px, 5vw, 80px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(216, 251, 255, .5));
+}
+.plane__light_tatyana { animation: beacon 1.6s steps(1) infinite; }
+.plane__light--b_tatyana { animation-delay: .8s; }
+
+@keyframes plane-on {
+    0% { translate: -10px -4px; opacity: 0; }
+    12% { opacity: 1; }
+    85% { opacity: 1; }
+    100% { translate: calc(var(--sky-h) * .136) 8px; opacity: 0; }
+  }
+@keyframes beacon {
+  0%   { opacity: 1; }
+  12%  { opacity: .15; }
+  100% { opacity: .15; }
+}
+
+.edge_tatyana {
+  position: absolute;
+  bottom: 0;
+  height: 86%;
+  width: clamp(0px, calc((100vw - var(--wrap)) / 2 + var(--gutter) - 26px), 240px);
+  max-width: none;
+  object-fit: cover;
+}
+.edge--left_tatyana  { left: 0;  object-position: 100% 100%; }
+.edge--right_tatyana { right: 0; object-position: 0 100%; }
+
+.scene--services_tatyana .edge_tatyana { opacity: .95; }
+
+.bridge--trail_tatyana {
+  left: 0;
+  width: 100%;
+  max-width: none;
+  height: clamp(150px, 18vw, 260px);
+  bottom: calc(clamp(150px, 18vw, 260px) / -2);
+}
+
+.scene--skills_tatyana .edge_tatyana { height: 80%; bottom: 10%; opacity: .7; }
+
+.bridge--window_tatyana {
+  left: 50%;
+  bottom: -52px;
+  width: 78px;
+  height: 104px;
+  translate: -50% 0;
+  border-radius: 5px;
+  background:
+    linear-gradient(90deg, transparent calc(50% - 2px), #1A0F4E calc(50% - 2px) calc(50% + 2px), transparent calc(50% + 2px)),
+    linear-gradient(180deg, transparent calc(50% - 2px), #1A0F4E calc(50% - 2px) calc(50% + 2px), transparent calc(50% + 2px)),
+    linear-gradient(180deg, #F2FEFF 0%, #8FF2FA 40%, #45C9F5 100%);
+  box-shadow:
+    0 0 0 4px #1A0F4E,
+    0 0 0 5px rgba(216, 251, 255, .5),
+    0 0 36px 6px rgba(69, 230, 245, .45),
+    0 0 110px 20px rgba(91, 124, 255, .3);
+}
+.bridge--window_tatyana::after {
+  content: "";
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 50%;
+  width: 150%;
+  height: 120px;
+  translate: -50% 0;
+  background: linear-gradient(180deg, rgba(69, 230, 245, .2), rgba(69, 230, 245, 0));
+  clip-path: polygon(22% 0, 78% 0, 100% 100%, 0 100%);
+  filter: blur(6px);
+}
+@media (max-width: 900px) {
+  .bridge--window_tatyana { width: 56px; height: 74px; bottom: -37px; }
+  .bridge--window_tatyana::after { display: none; }
+}
+
+.work__stage_tatyana {
+  background:
+    url("../assets/scenes/stage-city.svg") 50% 100% / 100% auto no-repeat,
+    radial-gradient(70% 55% at 50% 42%, var(--tint), transparent 72%),
+    linear-gradient(180deg, #1A0F4E 0%, #2A1670 62%, #0E0730 100%);
+}
+.work__stage_tatyana::after {
+  content: "";
+  position: absolute;
+  left: 10%; right: 10%;
+  top: calc(100% + 6px);
+  height: 46px;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, var(--tint), transparent);
+  opacity: .7;
+  filter: blur(10px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.bridge--reflect_tatyana {
+  top: calc(var(--pad) * -1 - 110px);
+  left: calc(var(--gutter) + var(--rail-x, 214px));
+  width: 150px;
+  height: calc(var(--pad) + 60px);
+  translate: -50% 0;
+  background: repeating-linear-gradient(90deg,
+    transparent 0 9px,
+    rgba(69, 230, 245, .5) 9px 11px,
+    transparent 11px 19px,
+    rgba(225, 75, 216, .42) 19px 21px,
+    transparent 21px 30px);
+  -webkit-mask-image: radial-gradient(50% 50% at 50% 50%, #000 0%, rgba(0, 0, 0, .35) 55%, transparent 100%);
+          mask-image: radial-gradient(50% 50% at 50% 50%, #000 0%, rgba(0, 0, 0, .35) 55%, transparent 100%);
+}
+.experience_tatyana .wrap_tatyana { --rail-x: 214px; }
+
+.metro-tail_tatyana {
+  position: absolute;
+  top: 100%;
+  left: calc(var(--gutter) + var(--rail-x) - 5.5px);
+  right: 0;
+  height: calc(var(--pad) + 46px);
+  pointer-events: none;
+  filter: drop-shadow(0 0 5px rgba(69, 230, 245, .45));
+  -webkit-mask-image: linear-gradient(90deg, #000 0, #000 45%, transparent 92%);
+          mask-image: linear-gradient(90deg, #000 0, #000 45%, transparent 92%);
+}
+.metro-tail_tatyana::before,
+.metro-tail_tatyana::after {
+  content: "";
+  position: absolute;
+  top: 0; right: 0;
+  border-style: solid;
+  border-width: 0 0 4px 4px;
+}
+.metro-tail_tatyana::before { left: 0; bottom: 0; border-color: var(--magenta); border-bottom-left-radius: 46px; }
+.metro-tail_tatyana::after  { left: 7px; bottom: 7px; border-color: var(--cyan); border-bottom-left-radius: 39px; }
+
+.scene--education_tatyana .scene__skyline_tatyana { bottom: 0; height: var(--edu-sky); object-position: 50% 100%; opacity: .92; }
+.education_tatyana::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  bottom: -1px;
+  height: 2px;
+  z-index: 2;
+  background: linear-gradient(90deg, transparent 0%, rgba(216, 251, 255, .7) 12%, #FFFFFF 50%, rgba(216, 251, 255, .7) 88%, transparent 100%);
+  box-shadow: 0 0 10px 1px rgba(69, 230, 245, .7), 0 0 44px 6px rgba(225, 75, 216, .4);
+  pointer-events: none;
+}
+
+.scene--about_tatyana .scene__water_tatyana { top: 0; height: max(min(100vw / 7.273, 220px), 100vw / 11.636); object-position: 50% 0; opacity: .85; }
+
+.interlude_tatyana {
+  position: relative;
+  padding-block: clamp(70px, 9vw, 120px);
+  background: linear-gradient(180deg, #140B40 0%, #1A0F4C 60%, #140B40 100%);
+}
+.interlude_tatyana::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  top: -60px;
+  height: 130px;
+  background: repeating-linear-gradient(180deg,
+    transparent 0 7px,
+    rgba(69, 230, 245, .22) 7px 8px,
+    transparent 8px 15px,
+    rgba(225, 75, 216, .18) 15px 16px);
+  -webkit-mask-image: radial-gradient(60% 50% at 50% 50%, #000 20%, transparent 100%);
+          mask-image: radial-gradient(60% 50% at 50% 50%, #000 20%, transparent 100%);
+  pointer-events: none;
+}
+.interlude__grid_tatyana {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr .72fr .72fr;
+  grid-template-rows: repeat(2, clamp(150px, 16vw, 230px));
+  gap: clamp(10px, 1.2vw, 16px);
+}
+.interlude__grid_tatyana::before,
+.interlude__grid_tatyana::after {
+  content: "";
+  position: absolute;
+  left: var(--gutter); right: var(--gutter);
+  height: 14px;
+  background: url("../assets/scenes/fret.svg") 0 0 / 24px 14px repeat-x;
+  opacity: .32;
+}
+.interlude__grid_tatyana::before { top: -34px; }
+.interlude__grid_tatyana::after  { bottom: -34px; }
+
+.tile_tatyana {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid rgba(160, 150, 255, .22);
+  box-shadow: 0 30px 60px -40px rgba(0, 0, 0, 1);
+}
+.tile--skyline_tatyana { grid-column: 1; grid-row: 1 / 3; }
+.tile--clouds_tatyana  { grid-column: 2; grid-row: 1; }
+.tile--frames_tatyana  { grid-column: 2; grid-row: 2; }
+.tile--tower_tatyana   { grid-column: 3; grid-row: 1 / 3; }
+.tile--grid_tatyana    { grid-column: 4; grid-row: 1 / 3; }
+
+.bridge--shape_tatyana {
+  left: 63%;
+  bottom: -26px;
+  width: 52px;
+  height: 52px;
+  rotate: 45deg;
+  border: 2px solid var(--cyan);
+  border-radius: 4px;
+  box-shadow: 0 0 14px rgba(69, 230, 245, .7), inset 0 0 14px rgba(69, 230, 245, .35);
+  animation: shape-on 14s ease-in-out infinite alternate;
+}
+.bridge--shape_tatyana::after {
+  content: "";
+  position: absolute;
+  inset: 11px;
+  border-radius: 2px;
+  background: var(--pink);
+  box-shadow: 0 0 18px rgba(255, 92, 157, .8);
+}
+@keyframes shape-on {
+  from { translate: 0 0; }
+  to   { translate: 46px 18px; }
+}
+
+.scene--contact_tatyana .scene__skyline_tatyana { bottom: 0; height: var(--c-sky); object-position: 50% 100%; }
+
+.finale_tatyana {
+  position: relative;
+  background: #0E0730;
+  overflow: hidden;
+}
+.finale_tatyana img {
+  width: 100%;
+  max-width: none;
+  height: max(320px, min(100vw / 2.424, 660px), 100vw / 3.879);
+  object-fit: cover;
+  object-position: 52% 100%;
+}
+@media (max-width: 900px) {
+  .finale_tatyana img { object-position: 49% 100%; }
+}
+
+@supports (animation-timeline: scroll()) {
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    z-index: 70;
+    transform-origin: 0 50%;
+    background: linear-gradient(90deg, var(--cyan), var(--blue) 55%, var(--pink));
+    animation: progress linear both;
+    animation-timeline: scroll(root);
+    pointer-events: none;
+  }
+  @keyframes progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+}
+
+@media (max-width: 1180px) {
+  .scene--services_tatyana .edge_tatyana,
+  .scene--skills_tatyana .edge_tatyana { display: none; }
+}
+
+@media (max-width: 1040px) {
+  .hero_tatyana { padding-bottom: calc(var(--sky-h) * .93); }
+  .plane_tatyana { left: auto; right: 16%; bottom: calc(var(--sky-h) * .66); }
+  @keyframes plane-on {
+    0% { translate: -10px -3px; opacity: 0; }
+    12% { opacity: 1; }
+    85% { opacity: 1; }
+    100% { translate: 40px 5px; opacity: 0; }
+  }
+}
+
+@media (max-width: 900px) {
+  .hero_tatyana { --sky-h: 250px; }
+  .scene--hero_tatyana .scene__skyline_tatyana { object-position: 52% 100%; }
+  .contact_tatyana { --c-sky: 240px; }
+  .education_tatyana { --edu-sky: 150px; }
+  .scene--about_tatyana .scene__water_tatyana { height: 120px; }
+  .interlude__grid_tatyana { grid-template-columns: 1fr 1fr; grid-template-rows: 200px 150px 150px; }
+  .tile--skyline_tatyana { grid-column: 1 / 3; grid-row: 1; }
+  .tile--clouds_tatyana  { grid-column: 1; grid-row: 2; }
+  .tile--frames_tatyana  { grid-column: 1; grid-row: 3; }
+  .tile--tower_tatyana   { grid-column: 2; grid-row: 2 / 4; }
+  .tile--grid_tatyana    { display: none; }
+}
+
+@media (max-width: 620px) {
+  .plane_tatyana { right: 4%; bottom: calc(var(--sky-h) * .74); }
+  @keyframes plane-on {
+    0% { translate: -6px -2px; opacity: 0; }
+    12% { opacity: 1; }
+    85% { opacity: 1; }
+    100% { translate: 18px 2px; opacity: 0; }
+  }
+}
+
+@media (max-width: 760px) {
+  .experience_tatyana .wrap_tatyana { --rail-x: 7px; }
+  .metro-tail_tatyana { height: calc(var(--pad) + 30px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plane_tatyana { animation: none; translate: 40px 6px; }
+  .plane__light_tatyana, .bridge--shape_tatyana { animation: none; }
+}
